@@ -1,0 +1,87 @@
+// Author: https://github.com/adi1090x/rofi
+// Modified by: ladev325
+
+@import ".config/rofi/theme.rasi"
+
+* {
+    font: "JetBrains Mono Nerd Font 12";
+}
+
+configuration {
+    show-icons: false;
+}
+
+window {
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 500px;
+    border-radius: @power-border-radius;
+    cursor: "default";
+    background-color: @power-main-bg;
+    border: @power-border-th;
+    border-color: @power-border;
+}
+
+mainbox {
+    spacing: 30px;
+    padding: 30px;
+    background-color: transparent;
+    children: [ "message", "listview" ];
+}
+
+message {
+    margin: 0px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: @power-second-bg;
+    text-color: @power-fg;
+}
+
+textbox {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+    placeholder-color: @power-fg;
+    blink: true;
+    markup: true;
+}
+
+listview {
+    columns: 2;
+    lines: 1;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 30px;
+    background-color: transparent;
+    text-color: @power-fg;
+    cursor: "default";
+}
+
+element {
+    padding: 60px 10px;
+    border-radius: 20px;
+    background-color: @power-second-bg;
+    text-color: @power-fg;
+    cursor: pointer;
+}
+
+element-text {
+    font: "feather 48";
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+element selected.normal {
+    background-color: @power-select-bg;
+    text-color: @power-main-bg;
+}

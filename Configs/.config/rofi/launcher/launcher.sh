@@ -1,0 +1,1 @@
+rofi -x11 -show drun -theme "~/.config/rofi/launcher/style.rasi"

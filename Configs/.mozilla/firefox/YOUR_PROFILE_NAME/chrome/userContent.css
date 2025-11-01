@@ -1,0 +1,28 @@
+@-moz-document url-prefix(about:home), url-prefix(about:newtab) {
+    .logo {
+        background-image: url("img.jpg") !important;
+        background-size: 300px !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        width: 100% !important;
+        min-height: 150px;
+    }
+    
+    .logo-and-wordmark .logo {
+        background-image: url("img.jpg") !important;
+        background-size: 300px !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        width: 100% !important;
+        min-height: 150px;
+
+    }
+    
+    .wordmark {
+        display: none !important;
+    }
+    
+    .logo-and-wordmark .wordmark {
+        display: none !important;
+    }
+}

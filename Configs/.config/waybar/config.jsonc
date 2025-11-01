@@ -1,0 +1,156 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "spacing": 12,
+    "modules-left": [
+        "group/left1",
+        "group/left2"
+    ],
+    "modules-center": [
+        "wlr/taskbar"
+    ],
+    "modules-right": [
+        "group/right1",
+        "group/right2",
+        "group/right3"
+    ],
+    "group/left1": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/arch",
+            "cpu",
+            "custom/gpu",
+            "memory",
+            "network"
+        ]
+    },
+    "group/left2": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/cpu-temp",
+            "custom/gpu-temp"
+        ]
+    },
+    "group/right1": {
+        "orientation": "horizontal",
+        "modules": [
+            "tray"
+        ]
+    },
+    "group/right2": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "bluetooth"
+        ]
+    },
+    "group/right3": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/lang",
+            "clock"
+        ]
+    },
+    "custom/arch": {
+        "format": "󰣇",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/powermenu/powermenu.sh"
+    },
+    "cpu": {
+        "format": "󰍛 {usage}%",
+        "interval": 5,
+        "tooltip": true
+    },
+    "custom/gpu": {
+        "format": "󰾲  {}%",
+        "interval": 5,
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+        "tooltip": true,
+        "tooltip-format": "GPU Usage: {}%"
+    },
+    "memory": {
+        "states": {
+            "c": 90,
+            "h": 60,
+            "m": 30
+        },
+        "interval": 30,
+        "format": "\udb83\udf86  {used}GB",
+        "rotate": 0,
+        "format-m": "\udb83\udf85  {used}GB",
+        "format-h": "\udb81\udcc5  {used}GB",
+        "format-c": "\uf421  {used}GB",
+        "format-alt": "\udb83\udf86  {percentage}%",
+        "max-length": 10,
+        "tooltip": true,
+        //"tooltip-format": "\udb83\udf86 {percentage}%\n\ue266 {used:0.1f}GB/{total:0.1f}GB",
+        "tooltip-format": "\udb83\udf86 Memory usage: {percentage}%\n\ue266 Used: {used:0.2f}GB / {total:0.2f}GB\n\uf85a Available: {avail:0.2f}GB\n\uf233 Swap used: {swapUsed:0.2f}GB / {swapTotal:0.2f}GB ({swapPercentage}%)"
+    },
+    "custom/cpu-temp": {
+        "format": "󰍛  {}°C",
+        "exec": "sensors | grep 'Package id 0' | awk '{printf \"%.0f\", $4}' | tr -d '+°C'",
+        "interval": 5,
+        "tooltip": true,
+        "tooltip-format": "CPU Temperature: {}°C"
+    },
+    "custom/gpu-temp": {
+        "format": "󰾲  {}°C",
+        "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+        "interval": 5,
+        "tooltip": true,
+        "tooltip-format": "GPU Temperature: {}°C"
+    },
+    "wlr/taskbar": {
+        "icon-size": 25,
+        "all-outputs": true,
+        "on-click": "activate"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "pulseaudio": {
+        "format": "  {volume}%",
+        "format-muted": "muted",
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "format-off": "",
+        "on-click": "blueman-manager"
+    },
+    "network": {
+        "format": "󰖪",
+        "format-disconnected": "󰖪",
+        "format-wifi": "{icon}",
+        "format-icons": [
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ],
+        "format-ethernet": "󰈀",
+        "tooltip": true,
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nm-connection-editor",
+        "interval": 5
+    },
+    "custom/lang": {
+        "format": "{}",
+        "exec": "hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap' | cut -c1-2 | tr '[:lower:]' '[:upper:]'",
+        "interval": 1,
+        "tooltip": false,
+        "on-click": "hyprctl switchxkblayout all next"
+    },
+    "clock": {
+        "format": "{:%a - %d.%m.%Y - %H:%M}",
+        "format-alt": "{:%H:%M}",
+        "tooltip": false,
+        "on-click-right": "GDK_DPI_SCALE=1.75 gsimplecal"
+    }
+}

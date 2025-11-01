@@ -1,0 +1,29 @@
+@import ".cache/wal/colors-rofi.rasi"
+
+* {
+    rofi-main-bg:        @background-alpha;
+    rofi-second-bg:      @background;
+    rofi-fg:             @foreground;
+    rofi-select-bg:      @color6;
+    rofi-separator:      @color6;
+    rofi-border:         @color6;
+    rofi-bg-image:       url("~/.config/wallpapers/current.jpg", width);
+    rofi-border-th:      3px;
+    rofi-border-radius:  0.75em;
+
+    power-main-bg:       @background;
+    power-second-bg:     @background-light;
+    power-select-bg:     @rofi-select-bg;
+    power-fg:            @rofi-fg;
+    power-border:        @rofi-border;
+    power-border-th:     @rofi-border-th;
+    power-border-radius: @rofi-border-radius;
+
+    wall-main-bg:        @background;
+    wall-second-bg:      transparent;
+    wall-fg:             @rofi-fg;
+    wall-select-bg:      @rofi-select-bg;
+    wall-border:         @rofi-border;
+    wall-border-th:      @rofi-border-th;
+    wall-border-radius:  @rofi-border-radius;
+}

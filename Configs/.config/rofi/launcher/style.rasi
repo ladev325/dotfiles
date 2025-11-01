@@ -1,0 +1,141 @@
+// Author: https://github.com/HyDE-Project/HyDE
+// Modified by: ladev325
+
+@import ".config/rofi/theme.rasi"
+
+configuration {
+    modi: "drun,filebrowser,window,run";
+    show-icons: true;
+    display-drun: " ";
+    display-run: " ";
+    display-filebrowser: " ";
+    display-window: " ";
+    drun-display-format: "{name}";
+    window-format: "{w}{t}";
+    font: "JetBrainsMono Nerd Font 12";
+    icon-theme: "Tela-circle-dracula";
+}
+
+window {
+    height: 40em;
+    width: 25em;
+    transparency: "real";
+    fullscreen: false;
+    enabled: true;
+    cursor: "default";
+    spacing: 0em;
+    padding: 0em;
+    background-color: @rofi-main-bg;
+}
+
+mainbox {
+    enabled: true;
+    spacing: 0em;
+    padding: 1em;
+    orientation: vertical;
+    children: [ "inputbar" , "listbox" ];
+    background-color: transparent;
+    border: @rofi-border-th;
+    border-color: @rofi-border;
+    border-radius: @rofi-border-radius;
+}
+
+inputbar {
+    enabled: true;
+    spacing: 0em;
+    padding: 4em;
+    children: [ "entry" ];
+    background-color: @rofi-main-bg;
+    background-image: @rofi-bg-image;
+    border-radius: 1em 1em 0em 0em;
+    border: 0px 0px 2px 0px;
+    border-color: @rofi-separator;
+}
+
+entry {
+    enabled: false;
+}
+
+listbox {
+    spacing: 0em;
+    padding: 0em;
+    children: [ "dummyt" , "listview" , "dummyb" ];
+    background-color: transparent;
+    border-radius: 0em 0em 1em 1em;
+}
+
+listview {
+    enabled: true;
+    spacing: 0.4em;
+    padding: 1em;
+    columns: 1;
+    lines: 10;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    expand: false;
+    fixed-height: true;
+    fixed-columns: true;
+    cursor: "default";
+    background-color: @rofi-second-bg;
+    text-color: @rofi-fg;
+}
+
+dummyt {
+    spacing: 0em;
+    padding: 0em;
+    background-color: @rofi-second-bg;
+}
+
+dummyb {
+    spacing: 0em;
+    padding: 0em;
+    background-color: @rofi-second-bg;
+    border-radius: 0em 0em 1em 1em;
+}
+
+element {
+    enabled: true;
+    spacing: 1em;
+    padding: 0.2em 0.2em 0.2em 1.5em;
+    cursor: pointer;
+    background-color: transparent;
+    text-color: @rofi-fg;
+}
+
+element selected.normal {
+    background-color: @rofi-select-bg;
+    text-color: @rofi-second-bg;
+    border-radius: 0.4em;
+}
+
+element-icon {
+    size: 2em;
+    cursor: inherit;
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element-text {
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    cursor: inherit;
+    background-color: transparent;
+    text-color: inherit;
+}
+
+error-message {
+    text-color: @rofi-fg;
+    background-color: @rofi-main-bg;
+    text-transform: capitalize;
+    children: [ "textbox" ];
+}
+
+textbox {
+    text-color: inherit;
+    background-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}

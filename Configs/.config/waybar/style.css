@@ -1,0 +1,169 @@
+@import url("../../.cache/wal/colors-waybar.css");
+
+@define-color waybar_tint_1 @color1;
+@define-color waybar_tint_2 @background;
+@define-color waybar_c1 @color6;
+@define-color waybar_c2 @color8;
+
+@define-color waybar_bg alpha(mix(@waybar_tint_1, black, 0.4), 0.3);
+@define-color tooltip_bg mix(@waybar_tint_1, black, 0.4);
+/*@define-color waybar_bg @waybar_tint_2;*/
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+
+window#waybar {
+    background-color: @waybar_bg;
+    border-top: 1px solid rgba(130, 130, 130, 0.3);
+}
+
+window#waybar>box {
+    margin: 7px;
+}
+
+tooltip label {
+    color: @waybar_c1;
+}
+
+tooltip {
+    background-color: @tooltip_bg;
+}
+
+.popup menuitem,
+.menu menuitem {
+    padding: 6px 12px;
+    background-color: @tooltip_bg;
+    color: @waybar_c1;
+}
+
+.modules-left>*,
+.modules-right>*,
+#taskbar {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+/* left1 */
+
+#custom-arch,
+#cpu,
+#custom-gpu,
+#memory,
+#network {
+    color: @waybar_c1;
+    padding: 0 8px;
+}
+
+#custom-arch {
+    color: @waybar_c2;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#network {
+    padding-right: 20px;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* left2 */
+
+#custom-cpu-temp,
+#custom-gpu-temp {
+    color: @waybar_c2;
+    padding: 0 8px;
+}
+
+#custom-cpu-temp {
+    padding-left: 10px;
+}
+
+#custom-gpu-temp {
+    padding-right: 12px;
+}
+
+/* center */
+
+#taskbar button {
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 0px 15px;
+    margin: 0 2px;
+    animation: tb_normal 20s ease-in-out 1;
+}
+
+#taskbar button:first-child {
+    margin-left: 0;
+}
+
+#taskbar button:last-child {
+    margin-right: 0;
+}
+
+#taskbar button:hover {
+    background-color: @waybar_c2;
+    animation: tb_hover 20s ease-in-out 1;
+    transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+#taskbar button.active {
+    background-color: @waybar_c1;
+    color: #1e1e2e;
+    animation: tb_active 20s ease-in-out 1;
+    transition: all 0.4s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+#taskbar.empty {
+    opacity: 0;
+}
+
+/* tray & right1 */
+
+#tray {
+    padding: 7px 12px;
+}
+
+#pulseaudio {
+    color: @waybar_c1;
+    padding-left: 12px;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+#bluetooth {
+    color: @waybar_c1;
+    padding-left: 10px;
+    padding-right: 12px;
+}
+
+#bluetooth.disabled,
+#bluetooth.off,
+#bluetooth:not(.connected) {
+    color: #6c7086;
+}
+
+/* right2 */
+
+#custom-lang {
+    color: @waybar_c2;
+    padding-left: 12px;
+}
+
+#clock {
+    color: @waybar_c1;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 12px;
+}
