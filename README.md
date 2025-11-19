@@ -86,9 +86,8 @@
 
 > [!CAUTION]
 > - This guide is intended for those who understand what they're doing<br>
-> - This is not a full guide on installing everything, just a short list of how to work with these configs<br>
-> - Install and configure basic hyprland firstly<br>
-> - I am not able to provide ALL the packages I could possibly use and download as some of them can change over time etc, BUT I'll try to tell what you basically need to get the setup like this<br>
+> - This is not a fully complete guide on installing everything, just a list of how to work with these configs<br>
+> - I am not able to provide a fresh list of the packages I could possibly use and download as some of them can change over time etc, BUT I'll tell what you basically need to get the setup like this<br>
 > - You'll 100% need to fix, additionally download or google something that is not working due to the repo possibly becoming outdated (though I'll try to maintain it as long as I use the dotfiles)<br>
 > - Author is not responsible for any system breaks caused by these configs<br>
 > - User discretion is advised
@@ -100,73 +99,98 @@ Also read all the points below before doing anything
 #### 2. Copy everything from `/Configs/.config` to your `/home/.config` directory
 - You should also backup and delete your configs in order to avoid possible conflicts<br>
 - This repo is minimally scripted, so you can easily copy only certain things<br>
-- Just make sure to look through the files you copy and link them properly to your existing configs
 #### 3. Copy everything from `/.mozilla/firefox/YOUR_PROFILE_NAME/chrome` to the according folder in your system
 - It is needed for Firefox logo customization<br>
 - If you have multiple profile folders in `/firefox`, you can try copying to both sequentially to find the active one<br>
 - Skip the step if you don't need to customize your Firefox logo<br>
 > [!IMPORTANT]
 > You'll have to go to about:config and set «toolkit.legacyUserProfileCustomizations.stylesheets» to "true"
-#### 4. Copy `.zshrc` to `/home/.zshrc` (backup the old one and replace if there's already one)
+#### 4. Copy `.zshrc` to `/home/.zshrc`
 #### 5. Add your own .jpg wallpapers (as many as you want) to `/.config/wallpapers/images`
 - Also you can delete that cat saying "only jpgs are supported.png" (he's not lying btw)
-#### 6. Install packages (may cause conflicts with your packs):
+#### 6. Install the following packages:
 ```bash
-# Pacman packages
-sudo pacman -S blueman # GUI bluetooth manager
-sudo pacman -S bluez-utils # CLI bluetooth
-sudo pacman -S btop # System monitor
-sudo pacman -S dunst # Lightweight notification daemon
-sudo pacman -S fastfetch # Cool sysinfo in terminal
-sudo pacman -S kitty # Terminal
-sudo pacman -S gsimplecal # Widget-like calendar app (for waybar)
-sudo pacman -S pavucontrol # GUI sound control
-sudo pacman -S qt5ct # Qt v5 application theme configurator
-sudo pacman -S qt6ct # Qt v6 application theme configurator
-sudo pacman -S rofi # App launcher
-sudo pacman -S waybar # Status bar
-sudo pacman -S discord # You know the thing
-sudo pacman -S telegram-desktop # Messenger
-sudo pacman -S polkit-gnome # Authentication agent
-sudo pacman -S qview # Lightweight image viewer
-sudo pacman -S thunar # File manager
-sudo pacman -S thunar-archive-plugin # Archive plugin for Thunar
-sudo pacman -S thunar-volman # Automatic removable media management for Thunar
-sudo pacman -S unrar # RAR extraction
-sudo pacman -S zsh # Default shell
-sudo pacman -S networkmanager # Network connection manager
-sudo pacman -S network-manager-applet # NetworkManager system tray applet
-sudo pacman -S adw-gtk-theme # Important for gradience pywal!
-sudo pacman -S papirus-icon-theme # Papirus icon theme
-sudo pacman -S kvantum # GUI for applying Qt themes
-sudo pacman -S nwg-look # GUI for applying GTK themes
+# Official repo (pacman) packages
+sudo pacman -S adw-gtk-theme
+sudo pacman -S archlinux-xdg-menu
+sudo pacman -S ark
+sudo pacman -S blueman
+sudo pacman -S bluez-utils
+sudo pacman -S btop
+sudo pacman -S cava
+sudo pacman -S cliphist
+sudo pacman -S cool-retro-term
+sudo pacman -S discord
+sudo pacman -S dunst
+sudo pacman -S efibootmgr
+sudo pacman -S fastfetch
+sudo pacman -S firefox
+sudo pacman -S gnome-calculator
+sudo pacman -S gnome-sound-recorder
+sudo pacman -S gsimplecal
+sudo pacman -S gvfs
+sudo pacman -S hyprland
+sudo pacman -S hyprshot
+sudo pacman -S hyprsunset
+sudo pacman -S kitty
+sudo pacman -S kvantum
+sudo pacman -S kvantum-qt5
+sudo pacman -S libdvdcss
+sudo pacman -S mousepad
+sudo pacman -S nano
+sudo pacman -S network-manager-applet
+sudo pacman -S networkmanager
+sudo pacman -S nm-connection-editor
+sudo pacman -S nodejs
+sudo pacman -S noto-fonts
+sudo pacman -S noto-fonts-cjk
+sudo pacman -S noto-fonts-emoji
+sudo pacman -S nwg-look
+sudo pacman -S obs-studio
+sudo pacman -S papers
+sudo pacman -S pavucontrol
+sudo pacman -S polkit-gnome
+sudo pacman -S qt5-wayland
+sudo pacman -S qt5ct
+sudo pacman -S qt6-positioning
+sudo pacman -S qt6-virtualkeyboard
+sudo pacman -S qt6ct
+sudo pacman -S rofi
+sudo pacman -S sddm
+sudo pacman -S sof-firmware
+sudo pacman -S swww
+sudo pacman -S telegram-desktop
+sudo pacman -S thunar
+sudo pacman -S thunar-archive-plugin
+sudo pacman -S thunar-volman
+sudo pacman -S ttf-firacode-nerd
+sudo pacman -S tumbler
+sudo pacman -S unrar
+sudo pacman -S vlc
+sudo pacman -S vlc-plugin-ffmpeg
+sudo pacman -S vlc-plugin-x264
+sudo pacman -S vlc-plugin-x265
+sudo pacman -S waybar
+sudo pacman -S xdg-desktop-portal-hyprland
+sudo pacman -S ydotool
+sudo pacman -S zsh
 
 # AUR packages
-yay -S cliphist # Clipboard history manager
-yay -S hyprshot # Screenshot utility for Hyprland
-yay -S hyprsunset # Blue light filter
-yay -S gradience # GTK theme generator to work with pywal
-yay -S ydotool # Input emulator for youtube escaper
-yay -S betterdiscord-installer # BetterDiscord for applying pywal theme on discord
-yay -S pywal-discord-git # Discord theming through pywal
-yay -S pywalfox # Firefox menu pywal theming
-yay -S python-pywal # Color scheme generator from wallpapers
-yay -S visual-studio-code-bin # VS Code editor
-yay -S walogram-git # Telegram pywal theming
-yay -S swww # Wallpaper daemon
-yay -S papirus-folders-catppuccin-git # Catppuccin colors for Papirus folders
-yay -S pywal-darkreader # Pywal integration with Dark Reader extension
-# Also you have to install oh-my-zsh and all the basic fonts needed including nerd fonts
-```
+yay -S betterdiscord-installer
+yay -S gapless
+yay -S gradience
+yay -S papirus-folders-catppuccin-git
+yay -S python-pywalfox
+yay -S pywal-discord-git
+yay -S pywal-git
+yay -S qview
+yay -S visual-studio-code-bin
+yay -S walogram-git
 
-```bash
-# Optional packages
-sudo pacman -S sddm # Login screen
-sudo pacman -S mousepad # Lightweight text editor
-sudo pacman -S cool-retro-term # Retro-styled terminal
-sudo pacman -S cava # Sound visualizer
-sudo pacman -S gnome-calculator # Calculator
-yay -S gapless # Lightweight music player
+# Manual installation required
+# oh-my-zsh (during the installation you should select the option where it doesn't overwrite your copied .zshc)
+
+# nvidia drivers if needed (check hyprland docs for more info)
 
 ```
 
@@ -184,24 +208,27 @@ Set theme to "adw-gtk3-dark"<br>
 
 ```$ gradience ```<br>
 Next, ok, proceed etc<br>
-Toggle GTK 3 and GTK 4 flatpak support if needed
+In GUI, toggle GTK 3 and GTK 4 flatpak support if needed
 
 #### 9. Install SDDM theme if you don't have one. You can use [Astronaut theme](https://github.com/Keyitdev/sddm-astronaut-theme)
 #### 10. Setup pywal darkreader from [this repo](https://github.com/alexhulbert/SeaGlass)
-#### 11. Press <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>Space</kbd> and apply the wallpaper you need 
+#### 11. `sudo EDITOR=nano visudo`
+- Allow wheel group users to execute any command *without password*
+- It is required by icon autochange script
+#### 12. Press <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>Space</kbd> and apply the wallpaper you need 
 - This will sync all the templates with the theming tools you just installed
-#### 12. Install BetterDiscord
-- Then, apply pywal theme generated by pywal-discord in discord theme settings (pywal-discord-new.css!)
-#### 13. Choose /.cache/walogram/wal.tdesktop-theme in telegram settings
+#### 13. Install BetterDiscord
+- Then, apply pywal theme generated by pywal-discord in discord theme settings (pywal-discord-new.css, not the default one!)
+#### 14. Choose /.cache/walogram/wal.tdesktop-theme in telegram settings
 - After wallpaper change it reloads on full telegram close, but sometimes automatically🤔
-#### 14. Go to pywalfox settings in Firefox
-> Expand the "theme template" bar and set colors according to the screenshot:
+#### 15. Go to pywalfox settings in Firefox
+> Expand the "theme template" bar and configure colors according to the screenshot:
 <img src="Previews/pywalfox.png" width="50%">
 
 <br>
 
 > [!NOTE]
-> - These scripts change your VSCode settings.json in order to apply pywal theme
+> - The scripts provided here change your VSCode settings.json in order to apply pywal theme
 > - This does not override syntax highlighting, so you can install any from extension manager
 > - If you want to keep the default theme, comment the string that launches 'reload_vscode.sh' in `/.config/wallpapers/scripts/reload_all.sh`
 > - If you've already applied the theme, the backup of your original settings.json is stored as settings-backup.json in the same folder
